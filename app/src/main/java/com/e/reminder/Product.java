@@ -64,12 +64,12 @@ public class Product {
     public Product(Document document) {
         if (document != null) {
             Map<String, AttributeValue> attributes = document.toAttributeMap();
-            if (attributes.containsKey("itemid")) {
-                this.itemid = attributes.get("itemid").getS();
+            if (attributes.containsKey("item_id")) {
+                this.itemid = attributes.get("item_id").getN();
             }
 
-            if (attributes.containsKey("name")) {
-                this.name = attributes.get("name").getS();
+            if (attributes.containsKey("item_name")) {
+                this.name = attributes.get("item_name").getS();
             }
 
             if (attributes.containsKey("category")) {
@@ -88,8 +88,8 @@ public class Product {
                 this.mfd = attributes.get("MFD").getS();
             }
 
-            if (attributes.containsKey("expirydate")) {
-                this.expiryDate = attributes.get("expirydate").getS();
+            if (attributes.containsKey("expiry_date")) {
+                this.expiryDate = attributes.get("expiry_date").getS();
             }
 
             if (attributes.containsKey("seller")) {
@@ -128,8 +128,8 @@ public class Product {
     @Override
     @NonNull
     public String toString() {
-        return "itemid='" + itemid + "\'\n" +
-                ", name='" + name + "\'\n" +
+        return "item_id='" + itemid + "\'\n" +
+                ", item_name='" + name + "\'\n" +
                 ", category='" + category + "\'\n" +
                 ", description='" + description + "\'\n" +
                 ", cost='" + cost + "\'\n" +

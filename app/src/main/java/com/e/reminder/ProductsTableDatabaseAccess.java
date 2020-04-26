@@ -61,12 +61,12 @@ public class ProductsTableDatabaseAccess {
     public ArrayList<Product> getAllContents() {
         ScanOperationConfig scanConfig = new ScanOperationConfig();
         List<String> attributeList = new ArrayList<>();
-        attributeList.add("name");
-        attributeList.add("itemid");
+        attributeList.add("item_name");
+        attributeList.add("item_id");
         attributeList.add("category");
         attributeList.add("description");
         attributeList.add("cost");
-        attributeList.add("expirydate");
+        attributeList.add("expiry_date");
         attributeList.add("seller");
         scanConfig.withAttributesToGet(attributeList);
         Search searchResult = dbTable.scan(scanConfig);
@@ -74,24 +74,19 @@ public class ProductsTableDatabaseAccess {
         for (Document doc : searchResult.getAllResults()) {
             result.add(new Product(doc));
         }
-
-//        Product p1 = new Product("id", "name", "test", "test", "test", "test", "test", "test");
-//        Product p2 = new Product("id2", "name2", "test2", "test2", "test2", "test2", "test2", "test2");
-//        result.add(p1);
-//        result.add(p2);
         return result;
     }
 
     public void create(Product product) {
         Map<String, AttributeValue> hashMap = new HashMap<>();
 
-        hashMap.put("name", new AttributeValue().withS(product.getName()));
-        hashMap.put("itemid", new AttributeValue().withS(product.getItemid()));
+        hashMap.put("item_name", new AttributeValue().withS(product.getName()));
+        hashMap.put("item_id", new AttributeValue().withN(product.getItemid()));
         hashMap.put("category", new AttributeValue().withS(product.getCategory()));
         hashMap.put("description", new AttributeValue().withS(product.getDescription()));
         hashMap.put("cost", new AttributeValue().withS(product.getCost()));
         hashMap.put("MFD", new AttributeValue().withS(product.getMfd()));
-        hashMap.put("expirydate", new AttributeValue().withS(product.getExpiryDate()));
+        hashMap.put("expiry_date", new AttributeValue().withS(product.getExpiryDate()));
         hashMap.put("seller", new AttributeValue().withS(product.getSeller()));
 
         Document document = Document.fromAttributeMap(hashMap);
@@ -101,27 +96,27 @@ public class ProductsTableDatabaseAccess {
     public void update(Product product) {
         Map<String, AttributeValue> hashMap = new HashMap<>();
 
-        hashMap.put("name", new AttributeValue().withS(product.getName()));
-        hashMap.put("itemid", new AttributeValue().withS(product.getItemid()));
+        hashMap.put("item_name", new AttributeValue().withS(product.getName()));
+        hashMap.put("item_id", new AttributeValue().withN(product.getItemid()));
         hashMap.put("category", new AttributeValue().withS(product.getCategory()));
         hashMap.put("description", new AttributeValue().withS(product.getDescription()));
         hashMap.put("cost", new AttributeValue().withS(product.getCost()));
         hashMap.put("MFD", new AttributeValue().withS(product.getMfd()));
-        hashMap.put("expirydate", new AttributeValue().withS(product.getExpiryDate()));
+        hashMap.put("expiry_date", new AttributeValue().withS(product.getExpiryDate()));
         hashMap.put("seller", new AttributeValue().withS(product.getSeller()));
 
         Document document = Document.fromAttributeMap(hashMap);
         dbTable.deleteItem(
-                document.get("itemid").asPrimitive());   // The Partition Key
+                document.get("item_id").asPrimitive());   // The Partition Key
         dbTable.putItem(document);
     }
 
     public void delete(Product product) {
         Map<String, AttributeValue> hashMap = new HashMap<>();
-        hashMap.put("itemid", new AttributeValue().withS(product.getItemid()));
+        hashMap.put("item_id", new AttributeValue().withN(product.getItemid()));
 
         Document document = Document.fromAttributeMap(hashMap);
         dbTable.deleteItem(
-                document.get("itemid").asPrimitive());   // The Partition Key
+                document.get("item_id").asPrimitive());   // The Partition Key
     }
 }
