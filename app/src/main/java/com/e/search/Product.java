@@ -1,4 +1,4 @@
-package com.e.reminder;
+package com.e.search;
 
 import androidx.annotation.NonNull;
 

@@ -1,4 +1,4 @@
-package com.e.reminder;
+package com.e.search;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.e.reminder.R;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.e.reminder;
+package com.e.search;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.Filter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.e.reminder.R;
 
 import java.util.ArrayList;
 
