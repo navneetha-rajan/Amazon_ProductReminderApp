@@ -22,7 +22,10 @@ Prerequisites
 	•	Android device or emulator
 
 Installation
-	1.	Clone the repository: git clone https://github.com/navneetha-rajan/Amazon_ProductReminderApp
+	1.	Clone the repository:
+
+git clone https://github.com/navneetha-rajan/Amazon_ProductReminderApp
+
 	2.	Open Android Studio and import the cloned project.
 	3.	Allow Gradle to synchronize and build the project.
 	4.	Connect your Android device or launch an emulator and run the application.
@@ -39,3 +42,7 @@ Your contributions are warmly welcomed! Feel free to submit issues, feature requ
 License 📄
 
 This project is open-source and available under the MIT License.
+
+⸻
+
+Enjoy efficient product management and reduced waste with the Product Expiry Tracker!
