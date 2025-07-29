@@ -39,7 +39,3 @@ Your contributions are warmly welcomed! Feel free to submit issues, feature requ
 License 📄
 
 This project is open-source and available under the MIT License.
-
-⸻
-
-Enjoy efficient product management and reduced waste with the Product Expiry Tracker!
